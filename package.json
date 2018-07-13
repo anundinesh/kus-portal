@@ -1,0 +1,58 @@
+{
+  "name": "kus-portal",
+  "version": "1.0.0",
+  "description": "Portal Application",
+  "main": "index.js",
+  "scripts": {
+    "start": "webpack -w & nodemon server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ankur79/kus-portal.git"
+  },
+  "keywords": [
+    "portal",
+    "react",
+    "react",
+    "router",
+    "redux",
+    "webpack",
+    "expressjs"
+  ],
+  "author": "Ankur Agarwal",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ankur79/kus-portal/issues"
+  },
+  "homepage": "https://github.com/ankur79/kus-portal#readme",
+  "babel": {
+    "presets": [
+      "env",
+      "react"
+    ],
+    "plugins": [
+      "transform-object-rest-spread"
+    ]
+  },
+  "dependencies": {
+    "cors": "^2.8.4",
+    "express": "^4.16.3",
+    "isomorphic-fetch": "^2.2.1",
+    "react": "^16.4.1",
+    "react-dom": "^16.4.1",
+    "react-router-dom": "^4.3.1",
+    "serialize-javascript": "^1.5.0",
+    "webpack-cli": "^3.0.8"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-loader": "^7.1.5",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
+    "nodemon": "^1.18.1",
+    "webpack": "^4.16.0",
+    "webpack-node-externals": "^1.7.2"
+  }
+}
