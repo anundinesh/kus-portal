@@ -5,6 +5,7 @@ import { renderToString } from "react-dom/server"
 import { StaticRouter, matchPath } from "react-router-dom"
 import serialize from "serialize-javascript"
 import App from '../shared/App'
+import Layout from '../shared/Layout'
 import routes from '../shared/routes'
 
 const app = express()
@@ -19,7 +20,9 @@ app.get("*", (req, res, next) => {
     const context = { data }
     const markup = renderToString(
       <StaticRouter location={req.url} context={context}>
-        <App />
+        <Layout>
+          <App />
+        </Layout>
       </StaticRouter>
     )
 
@@ -27,7 +30,7 @@ app.get("*", (req, res, next) => {
       <!DOCTYPE html>
       <html>
         <head>
-          <title>Kusari/title>
+          <title>Kusari</title>
           <script src="/bundle.js" defer></script>
           <script>window.__INITIAL_DATA__ = ${serialize(data)}</script>
         </head>

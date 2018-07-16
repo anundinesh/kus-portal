@@ -11,7 +11,7 @@ var browserConfig = {
   },
   module: {
     rules: [
-      { test: /\.(js)$/, use: 'babel-loader' },
+      { test: /\.(js)$/, exclude: /node_modules/, use: 'babel-loader' },
     ]
   },
   mode: 'development',
@@ -33,7 +33,7 @@ var serverConfig = {
   },
   module: {
     rules: [
-      { test: /\.(js)$/, use: 'babel-loader' }
+      { test: /\.(js)$/, exclude: /node_modules/, use: 'babel-loader' }
     ]
   },
   plugins: [
