@@ -1,11 +1,12 @@
-import Home from './Home'
+import Home from "./Home";
 
-const routes =  [
+const routes = [
   {
-    path: '/',
+    path: "/",
     exact: true,
     component: Home,
+    primary: "Home"
   }
-]
+];
 
-export default routes
+export default routes;

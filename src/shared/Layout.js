@@ -1,64 +1,64 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import classNames from 'classnames';
-import { withStyles } from '@material-ui/core/styles';
-import Drawer from '@material-ui/core/Drawer';
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
-import List from '@material-ui/core/List';
-import MenuItem from '@material-ui/core/MenuItem';
-import TextField from '@material-ui/core/TextField';
-import Typography from '@material-ui/core/Typography';
-import Divider from '@material-ui/core/Divider';
+import React from "react";
+import PropTypes from "prop-types";
+import classNames from "classnames";
+import { withStyles } from "@material-ui/core/styles";
+import Drawer from "@material-ui/core/Drawer";
+import AppBar from "@material-ui/core/AppBar";
+import Toolbar from "@material-ui/core/Toolbar";
+import List from "@material-ui/core/List";
+import MenuItem from "@material-ui/core/MenuItem";
+import TextField from "@material-ui/core/TextField";
+import Typography from "@material-ui/core/Typography";
+import Divider from "@material-ui/core/Divider";
+import { leftPanelList } from "./Menu";
 
 const drawerWidth = 240;
 
 const styles = theme => ({
   root: {
-    flexGrow: 1,
+    flexGrow: 1
   },
   appFrame: {
     zIndex: 1,
-    overflow: 'hidden',
-    position: 'relative',
-    display: 'flex',
-    width: '100%',
+    overflow: "hidden",
+    position: "relative",
+    display: "flex",
+    width: "100%"
   },
   appBar: {
-    width: `calc(100% - ${drawerWidth}px)`,
+    width: `calc(100% - ${drawerWidth}px)`
   },
-  'appBar-left': {
-    marginLeft: drawerWidth,
+  "appBar-left": {
+    marginLeft: drawerWidth
   },
-  'appBar-right': {
-    marginRight: drawerWidth,
+  "appBar-right": {
+    marginRight: drawerWidth
   },
   drawerPaper: {
-    position: 'relative',
-    width: drawerWidth,
+    position: "relative",
+    width: drawerWidth
   },
   toolbar: theme.mixins.toolbar,
   content: {
     flexGrow: 1,
     backgroundColor: theme.palette.background.default,
-    padding: theme.spacing.unit * 3,
-  },
+    padding: theme.spacing.unit * 3
+  }
 });
 
 class Layout extends React.Component {
-    constructor(props){
-        super(props);
-        this.state = {
-            anchor: 'left',
-          };
-    }
-
+  constructor(props) {
+    super(props);
+    this.state = {
+      anchor: "left"
+    };
+  }
 
   handleChange(event) {
     this.setState({
-      anchor: event.target.value,
+      anchor: event.target.value
     });
-  };
+  }
 
   render() {
     const { classes, children } = this.props;
@@ -68,12 +68,13 @@ class Layout extends React.Component {
       <Drawer
         variant="permanent"
         classes={{
-          paper: classes.drawerPaper,
+          paper: classes.drawerPaper
         }}
         anchor={anchor}
       >
         <div className={classes.toolbar} />
         <Divider />
+        <List>{leftPanelList}</List>
         <Divider />
       </Drawer>
     );
@@ -81,7 +82,7 @@ class Layout extends React.Component {
     let before = null;
     let after = null;
 
-    if (anchor === 'left') {
+    if (anchor === "left") {
       before = drawer;
     } else {
       after = drawer;
@@ -113,7 +114,7 @@ class Layout extends React.Component {
 }
 
 Layout.propTypes = {
-  classes: PropTypes.object.isRequired,
+  classes: PropTypes.object.isRequired
 };
 
 export default withStyles(styles)(Layout);
