@@ -4,12 +4,14 @@ import {connect} from 'react-redux';
 import {Redirect, Route, Switch} from 'react-router-dom';
 import Paper from 'material-ui/Paper';
 
-import AppBar from 'containers/AppBar';
-import AppMenu from 'containers/AppMenu';
-import ModalsLayout from 'containers/ModalsLayout/index';
-import NotFound from 'containers/NotFound';
-import ServersPage from 'containers/ServersPage/index';
-import ProgressBar from 'components/ProgressBar';
+import AppBar from './AppBar';
+import AppMenu from './AppMenu';
+import ModalsLayout from './ModalsLayout/index';
+import NotFound from './NotFound';
+import ServersPage from './ServersPage/index';
+import ProgressBar from '../components/ProgressBar';
+import Dashboard from '../containers/Dashboard';
+import MiniDrawer from '../containers/MiniDrawer';
 
 export class AppLayout extends React.Component {
   static propTypes = {
@@ -21,19 +23,17 @@ export class AppLayout extends React.Component {
 
     return (
       <section>
-        <Paper zDepth={1} style={{position: 'fixed', width: '100%', zIndex: 10}}>
-          <AppBar>
-            <AppMenu />
-          </AppBar>
-          {loading && <ProgressBar />}
-        </Paper>
-        <section style={{paddingTop: 50}}>
+        <MiniDrawer>
           <Switch>
             <Route exact path="/" component={ServersPage} />
             <Route exact path="/users" name="home-users" component={NotFound} />
+            <Route exact path="/dashboard" name="dashboard" component={Dashboard} />
+            <Route exact path="/miniDrawer" name="miniDrawer" component={MiniDrawer} />
+
             <Redirect to="/" />
           </Switch>
-        </section>
+        </MiniDrawer>
+
         <ModalsLayout />
       </section>
     );
