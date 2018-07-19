@@ -37,8 +37,8 @@ class MarketingAnalyst extends Component {
                 <h1 className="page-header">
                     Marketing Analyst
                 </h1>
-                <div class="row placeholders">
-                    <div class="col-xs-12 col-sm-12 placeholder">
+                <div className="row placeholders">
+                    <div className="col-xs-12 col-sm-12 placeholder">
                         <h4
                             style={{
                             textAlign: "left"

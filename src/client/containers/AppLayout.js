@@ -13,11 +13,10 @@ import ProgressBar from '../components/ProgressBar';
 import MiniDrawer from '../containers/MiniDrawer';
 import Dashboard from '../containers/Dashboard';
 import PredictiveAnalyst from '../containers/PredictiveAnalyst';
-// import MarketingAnalyst from '../containers/MarketingAnalyst';
+import MarketingAnalyst from '../containers/MarketingAnalyst';
 import SupplyChain from '../containers/SupplyChain';
 import DataEngineer from '../containers/DataEngineer';
 
-// <Route exact path="/marketing-analyst" name="marketing-analyst" component={MarketingAnalyst} />
 
 
 
@@ -41,6 +40,7 @@ export class AppLayout extends React.Component {
             <Route exact path="/predictive-analyst" name="predictive-analyst" component={PredictiveAnalyst} />
             <Route exact path="/data-engineer" name="data-engineer" component={DataEngineer} />
             <Route exact path="/supply-chain" name="supply-chain" component={SupplyChain} />
+            <Route exact path="/marketing-analyst" name="marketing-analyst" component={MarketingAnalyst} />
 
             <Redirect to="/" />
           </Switch>

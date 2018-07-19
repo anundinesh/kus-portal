@@ -2,8 +2,8 @@ import React from 'react';
 import {Modal} from 'react-bootstrap';
 import ModalTable from './ModalTable';
 import ModalChart from './ModalChart';
-import csvjson from './csvjson.json';
-import metrics from './metrics.json';
+import csvjson from '../json/csvjson.json';
+import metrics from '../json/metrics.json';
 class ModalContent extends React.Component {
     render() {
         const {contentType} = this.props;
