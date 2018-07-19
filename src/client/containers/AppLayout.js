@@ -10,8 +10,19 @@ import ModalsLayout from './ModalsLayout/index';
 import NotFound from './NotFound';
 import ServersPage from './ServersPage/index';
 import ProgressBar from '../components/ProgressBar';
-import Dashboard from '../containers/Dashboard';
 import MiniDrawer from '../containers/MiniDrawer';
+import Dashboard from '../containers/Dashboard';
+import PredictiveAnalyst from '../containers/PredictiveAnalyst';
+// import MarketingAnalyst from '../containers/MarketingAnalyst';
+import SupplyChain from '../containers/SupplyChain';
+import DataEngineer from '../containers/DataEngineer';
+
+// <Route exact path="/marketing-analyst" name="marketing-analyst" component={MarketingAnalyst} />
+
+
+
+
+
 
 export class AppLayout extends React.Component {
   static propTypes = {
@@ -25,10 +36,11 @@ export class AppLayout extends React.Component {
       <section>
         <MiniDrawer>
           <Switch>
-            <Route exact path="/" component={ServersPage} />
+            <Route exact path="/" component={Dashboard} />
             <Route exact path="/users" name="home-users" component={NotFound} />
-            <Route exact path="/dashboard" name="dashboard" component={Dashboard} />
-            <Route exact path="/miniDrawer" name="miniDrawer" component={MiniDrawer} />
+            <Route exact path="/predictive-analyst" name="predictive-analyst" component={PredictiveAnalyst} />
+            <Route exact path="/data-engineer" name="data-engineer" component={DataEngineer} />
+            <Route exact path="/supply-chain" name="supply-chain" component={SupplyChain} />
 
             <Redirect to="/" />
           </Switch>

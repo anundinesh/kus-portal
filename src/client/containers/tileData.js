@@ -3,62 +3,54 @@ import React from 'react';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
-import InboxIcon from '@material-ui/icons/MoveToInbox';
+import HomeIcon from '@material-ui/icons/Home';
 import DraftsIcon from '@material-ui/icons/Drafts';
 import StarIcon from '@material-ui/icons/Star';
 import SendIcon from '@material-ui/icons/Send';
 import MailIcon from '@material-ui/icons/Mail';
 import DeleteIcon from '@material-ui/icons/Delete';
 import ReportIcon from '@material-ui/icons/Report';
+import {Link} from 'react-router-dom';
+
+import Dashboard from '../containers/Dashboard';
+import PredictiveAnalyst from '../containers/PredictiveAnalyst';
+// import MarketingAnalyst from '../containers/MarketingAnalyst';
+import SupplyChain from '../containers/SupplyChain';
+import DataEngineer from '../containers/DataEngineer';
+
 
 export const mailFolderListItems = (
   <div>
-    <ListItem button>
+    <ListItem button  component={Link} to='/'>
       <ListItemIcon>
-      <InboxIcon />
+      <HomeIcon />
       </ListItemIcon>
-      <ListItemText primary="Inbox" />
+      <ListItemText primary="Home" />
     </ListItem>
-    <ListItem button>
+    <ListItem button component={Link} to='/predictive-analyst'>
       <ListItemIcon>
       <StarIcon />
       </ListItemIcon>
-      <ListItemText primary="Starred" />
+      <ListItemText  primary="Predictive Analyst" />
     </ListItem>
-    <ListItem button>
+    <ListItem button component={Link} to='/marketing-analyst'>
       <ListItemIcon>
       <SendIcon />
       </ListItemIcon>
-      <ListItemText primary="Send mail" />
+      <ListItemText primary="Marketing Analyst" />
     </ListItem>
-    <ListItem button>
+    <ListItem button component={Link} to='/supply-chain'>
       <ListItemIcon>
       <DraftsIcon />
       </ListItemIcon>
-      <ListItemText primary="Drafts" />
+      <ListItemText primary="Supply Chain" />
     </ListItem>
+    <ListItem button component={Link} to='/data-engineer'>
+    <ListItemIcon>
+    <DraftsIcon />
+    </ListItemIcon>
+    <ListItemText primary="Data Engineer" />
+  </ListItem>
   </div>
 );
 
-export const otherMailFolderListItems = (
-  <div>
-    <ListItem button>
-      <ListItemIcon>
-      <MailIcon />
-      </ListItemIcon>
-      <ListItemText primary="All mail" />
-    </ListItem>
-    <ListItem button>
-      <ListItemIcon>
-      <DeleteIcon />
-      </ListItemIcon>
-      <ListItemText primary="Trash" />
-    </ListItem>
-    <ListItem button>
-      <ListItemIcon>
-      <ReportIcon />
-      </ListItemIcon>
-      <ListItemText primary="Spam" />
-    </ListItem>
-  </div>
-);
