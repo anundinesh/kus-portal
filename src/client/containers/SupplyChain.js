@@ -1,5 +1,20 @@
 import React, {Component} from 'react';
 import {Bar, Pie, Line} from 'react-chartjs-2';
+import Grid from '@material-ui/core/Grid';
+import { withStyles } from '@material-ui/core/styles';
+import Paper from '@material-ui/core/Paper';
+
+
+const styles = theme => ({
+    root: {
+      flexGrow: 1,
+    },
+    paper: {
+      padding: theme.spacing.unit * 2,
+      textAlign: 'center',
+      color: theme.palette.text.secondary,
+    },
+  });
 
 class SupplyChain extends Component {
     state = {
@@ -93,35 +108,44 @@ class SupplyChain extends Component {
         }
     }
     render() {
+
         return (
             <React.Fragment>
                 <h1 className="page-header">
                     Supply Chain {" "}<i className="fa fa-angle-right"></i>{" "}
                     Dashboard
                 </h1>
-                <div className="row placeholders">
-                    <div className="col-xs-6 col-sm-6 placeholder">
-                        <div className="card">
-                            <Line data={this.state.line}/>
-                        </div>
-                    </div>
-                    <div className="col-xs-6 col-sm-3 placeholder">
-                        <div className="card">
-                            <Pie data={this.state.pie} width={100} height={140}/>
-                        </div>
-                    </div>
-                    <div className="col-xs-6 col-sm-3 placeholder">
-                        <div className="card">
-                            <Bar
-                                data={this.state.data}
-                                width={100}
-                                height={140}
-                                options={{
-                                maintainAspectRatio: true
-                            }}/>
-                        </div>
-                    </div>
-                </div>
+                <div>
+                    <Grid container spacing={24}>
+                        <Grid item xs={12} sm={12}>
+                            <Paper>
+                                <div className="card" style={{width: '100%'}}>
+                                    <Line data={this.state.line} height={'70%'}/>
+                                </div>                        
+                            </Paper>
+                        </Grid>
+                        <Grid item xs={12} sm={6}>
+                            <Paper align="center">
+                                <div className="card" style={{width: '300px'}}>
+                                    <Pie data={this.state.pie} width={100} height={140}/>
+                                </div>                            
+                            </Paper>
+                        </Grid>
+                        <Grid item xs={12} sm={6}>
+                            <Paper>
+                                <div className="card" style={{width: '100%', height:'420px'}}>
+                                    <Bar
+                                        data={this.state.data}
+                                        width={100}
+                                        height={'70%'}
+                                        options={{
+                                        maintainAspectRatio: true
+                                    }}/>
+                                </div>                            
+                            </Paper>
+                        </Grid>
+                    </Grid>
+                </div>                
             </React.Fragment>
         );
     }
